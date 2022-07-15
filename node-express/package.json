@@ -1,0 +1,9 @@
+{
+  "name": "node-express",
+  "version": "1.0.0",
+  "description": "A node-express project for KSM-3149",
+  "main": "index.js",
+  "author": "Pamela Gilmour",
+  "license": "n",
+  "private": true
+}
