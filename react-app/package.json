@@ -1,0 +1,9 @@
+{
+  "name": "react-app",
+  "version": "1.0.0",
+  "description": "React app for Training Initial Project",
+  "main": "index.js",
+  "author": "Pamela Gilmour",
+  "license": "MIT",
+  "private": true
+}
