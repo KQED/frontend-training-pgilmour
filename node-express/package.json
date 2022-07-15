@@ -4,6 +4,9 @@
   "description": "A node-express project for KSM-3149",
   "main": "index.js",
   "author": "Pamela Gilmour",
-  "license": "n",
-  "private": true
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "express": "^4.18.1"
+  }
 }
