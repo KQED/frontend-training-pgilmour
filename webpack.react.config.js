@@ -3,10 +3,11 @@
 */
 const path = require('path');
 module.exports = {
+  mode: 'development',
   entry: './react-app/index.js',
   output: {
     path: path.resolve('dist'),
-    filename: 'index_bundle.js'
+    filename: 'frontend_index_bundle.js'
   },
   module: {
     loaders: [
