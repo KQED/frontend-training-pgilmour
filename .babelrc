@@ -1,0 +1,17 @@
+// https://gist.github.com/kannanagasamy/e857f03ff4e8ac990d88e51542feab0b#file-babelrc
+{
+    /*
+        a preset is a set of plugins used to support particular language features.
+        The two presets Babel uses by default: es2015, react
+    */
+    "presets": [
+        "@babel/preset-env", //compiling ES2015+ syntax
+        "@babel/preset-react" //for react
+    ],
+    /*
+        Babel's code transformations are enabled by applying plugins (or presets) to your configuration file.
+    */
+    "plugins": [
+        "@babel/plugin-transform-runtime"
+    ]
+}

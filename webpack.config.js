@@ -5,6 +5,13 @@ const path = require("path");
 /*We are basically telling webpack to take index.js from entry. Then check for all file extensions in resolve. 
 After that apply all the rules in module.rules and produce the output and place it in main.js in the public folder.*/
 
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
+  template: './client/index.html',
+  filename: 'index.html',
+  inject: 'body'
+})
+
 module.exports={
     /** "mode"
      * the environment - development, production, none. tells webpack 
@@ -14,7 +21,7 @@ module.exports={
     /** "entry"
      * the entry point 
      */
-    entry: "./src/index.js", 
+    entry: "./react-app/src/index.js", 
     output: {
         /** "path"
          * the folder path of the output file 
@@ -75,6 +82,12 @@ module.exports={
                 exclude: /node_modules/, //folder to be excluded
                 use:  'babel-loader' //loader which we are going to use
             }
+        ],
+        loaders: [
+            { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
+            { test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/ }
         ]
-    }
+    },
+    plugins: [HtmlWebpackPluginConfig]
+
 }
