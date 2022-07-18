@@ -1,8 +1,7 @@
 {
   "name": "node-express",
   "version": "1.0.0",
-  "description": "A node-express project for KSM-3149",
-  "main": "./src/index.js",
+  "description": "Training: Initial Project",
   "author": "Pamela Gilmour",
   "private": true,
   "license": "unlicensed",
