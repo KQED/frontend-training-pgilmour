@@ -6,9 +6,7 @@
   "private": true,
   "license": "unlicensed",
   "scripts": {
-    "build:react-app": "webpack --mode=development ./webpack.react.config.js",
-    "build:server": "webpack --mode=development ./webpack.react.config.js",
-    "start:server": "webpack --mode=development"
+    "build:react-app": "webpack --mode=development ./webpack.react.config.js"
   },
   "dependencies": {
     "@babel/core": "^7.18.9",
