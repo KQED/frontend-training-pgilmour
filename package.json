@@ -21,7 +21,6 @@
     "webpack-dev-server": "^4.9.3"
   },
   "scripts": {
-    "server": "node server/index.js",
     "build": "webpack --config webpack.react.config.js",
     "start": "node server/index.js"
   }
