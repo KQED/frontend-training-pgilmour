@@ -16,6 +16,7 @@ module.exports={
 
         extensions: ['*','.js','.jsx','.json'] 
     },
+
     module: {
         rules: [
           {
@@ -38,6 +39,14 @@ module.exports={
         new HtmlWebpackPlugin({
           template: "./react-app/src/index.html",
           publicPath: "/",
-        }),
+        }), 
+        ["@html-eslint"]
       ],
+    overrides: [
+        {
+          files: ["*.html"],
+          parser: "@html-eslint/parser",
+          extends: ["plugin:@html-eslint/recommended"],
+        },
+      ]
 }

@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react'
 
 export class Greet extends React.Component {
-    render() { 
-      return <h2>Hello there, I'm a header component!</h2>;
-    }
+  render () {
+    return <h2>Hello there, I`&lsquo;`m a header component!</h2>
   }
+}
