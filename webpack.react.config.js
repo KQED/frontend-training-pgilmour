@@ -1,5 +1,10 @@
-const path = require("path");
+// import path from 'path'
+const path = require("path")
+// import HtmlWebpackPlugin from 'html-webpack-plugin' 
 const HtmlWebpackPlugin = require("html-webpack-plugin")
+// import ESLintPlugin from 'eslint-webpack-plugin'
+const ESLintPlugin = require('eslint-webpack-plugin')
+
 
 module.exports={
 
@@ -39,14 +44,15 @@ module.exports={
         new HtmlWebpackPlugin({
           template: "./react-app/src/index.html",
           publicPath: "/",
-        }), 
-        ["@html-eslint"]
+        }),
+        new ESLintPlugin(
+          // {
+          // extensions:['js', 'jsx', 'json']
+        // }
+        ),
       ],
-    overrides: [
-        {
-          files: ["*.html"],
-          parser: "@html-eslint/parser",
-          extends: ["plugin:@html-eslint/recommended"],
-        },
-      ]
+      watch: true,
+      watchOptions: {
+        ignored: 'path.resolve(__dirname, node_modules)',
+      },
 }

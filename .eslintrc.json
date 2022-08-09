@@ -25,11 +25,15 @@
         "jsx": true
       },
       "ecmaVersion": 2018,
-      "sourceType": "module"
+      "sourceType": "module",
+      "babelOptions": {
+        "presets": ["@babel/preset-react"]
+      }
     },
     "plugins": [
       "react"
     ],
+    "parser": "@babel/eslint-parser",
     "rules": {
       "space-before-function-paren": [
         "error", {
