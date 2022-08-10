@@ -1,23 +1,14 @@
-// import path from 'path'
 const path = require('path')
-// import HtmlWebpackPlugin from 'html-webpack-plugin' 
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-// import ESLintPlugin from 'eslint-webpack-plugin'
 const ESLintPlugin = require('eslint-webpack-plugin')
 
 
 module.exports={
   mode: 'development',
-  entry: './react-app/src/index.js',
+  entry: './react-app/src/index.jsx',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'main_react_bundle.js'
-  },
-  resolve: {
-    alias: {
-      components: path.resolve(__dirname, 'src'),
-    },
-    extensions: ['*','.js','.jsx','.json'] 
   },
   module: {
     rules: [
@@ -32,16 +23,25 @@ module.exports={
               '@babel/preset-env',
               ['@babel/preset-react', { 'runtime': 'automatic' }]
             ],
-            plugins: ['@babel/plugin-transform-runtime'],
+            plugins: [
+              '@babel/plugin-transform-runtime',
+              '@babel/plugin-transform-react-inline-elements'
+            ],
           },
         }
       },
     ]
   },
+  resolve: {
+    alias: {
+      components: path.resolve(__dirname, 'src'),
+    },
+    extensions: ['*','.js','.jsx','.json']
+  },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './react-app/src/index.html',
-      publicPath: '/',
+      template: './react-app/index.html',
+      publicPath: '/index.html',
     }),
     new ESLintPlugin(
       {
@@ -51,6 +51,6 @@ module.exports={
   ],
   watch: true,
   watchOptions: {
-    ignored: 'path.resolve(__dirname, node_modules)',
+    ignored: path.resolve(__dirname, 'node_modules'),
   }
 }

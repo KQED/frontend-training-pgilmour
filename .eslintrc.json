@@ -3,6 +3,11 @@
       "browser": true,
       "node": true
     },
+    "overrides": [
+      {
+        "files": ["*.jsx", "*.js"]
+      }
+    ],
     "settings": {
       "react": {
         "version": "detect"
