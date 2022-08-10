@@ -7,10 +7,14 @@
   "license": "unlicensed",
   "dependencies": {
     "@babel/core": "^7.18.9",
+    "@babel/eslint-parser": "^7.18.9",
     "@babel/plugin-transform-runtime": "^7.18.9",
     "@babel/preset-env": "^7.18.9",
     "@babel/preset-react": "^7.18.6",
     "babel-loader": "^8.2.5",
+    "eslint": "^8.21.0",
+    "eslint-plugin-react": "^7.30.1",
+    "eslint-webpack-plugin": "^3.2.0",
     "express": "^4.18.1",
     "html-webpack-plugin": "^5.5.0",
     "path": "^0.12.7",
@@ -21,7 +25,9 @@
     "webpack-dev-server": "^4.9.3"
   },
   "scripts": {
-    "build": "webpack --config webpack.react.config.js",
-    "start": "node server/index.js"
+    "build": "webpack --config ./webpack.react.config.js",
+    "start": "node server/index.js",
+    "eslint": "eslint .",
+    "watch": "webpack --mode=development --watch --config ./webpack.react.config.js"
   }
 }
