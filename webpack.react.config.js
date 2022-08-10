@@ -14,12 +14,16 @@ module.exports={
     filename: 'main_react_bundle.js'
   },
   resolve: {
+    alias: {
+      components: path.resolve(__dirname, 'src'),
+    },
     extensions: ['*','.js','.jsx','.json'] 
   },
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
+        include: path.resolve(__dirname, 'src'),
         exclude: /(node_modules)/,
         use: {
           loader: 'babel-loader',
@@ -40,9 +44,9 @@ module.exports={
       publicPath: '/',
     }),
     new ESLintPlugin(
-      // {
-      // extensions:['js', 'jsx', 'json']
-      // }
+      {
+      extensions:['js', 'jsx', 'json']
+      }
     ),
   ],
   watch: true,
