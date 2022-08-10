@@ -41,7 +41,7 @@ module.exports={
   plugins: [
     new HtmlWebpackPlugin({
       template: './react-app/index.html',
-      publicPath: '/index.html',
+      publicPath: '/',
     }),
     new ESLintPlugin(
       {
