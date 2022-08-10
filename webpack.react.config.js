@@ -49,7 +49,6 @@ module.exports={
       }
     ),
   ],
-  watch: true,
   watchOptions: {
     ignored: path.resolve(__dirname, 'node_modules'),
   }

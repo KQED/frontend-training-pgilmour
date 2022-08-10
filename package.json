@@ -29,7 +29,7 @@
     "build": "webpack --config webpack.react.config.js",
     "start": "node server/index.js",
     "eslint": "eslint -c ./.eslintrc.json ./react-app",
-    "watch:build": "webpack --mode=development --watch"
+    "watch": "webpack --mode=development --watch --config webpack.react.config.js"
   },
   "repository": "git@github.com:KQED/frontend-training-pgilmour.git"
 }
