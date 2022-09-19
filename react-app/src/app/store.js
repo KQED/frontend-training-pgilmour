@@ -12,7 +12,7 @@ import { configureStore } from '@reduxjs/toolkit'
 // We have a file in the features dir that exports a reducer fx
 // We can import that counterReducer here and include it when we create the store.
 
-// import counterReducer from '../features/counter/counterSlice'
+import counterReducer from '../features/counter/counterSlice'
 
 // wHen we pass in an object like `{counter: counterReducer}`
 // that says that we want to have a `state.counter` section in our Rewdux state object
@@ -22,13 +22,17 @@ import { configureStore } from '@reduxjs/toolkit'
 
 //configureStore automatically adds several middleware to the store setup by default
 
+// Next, we need to import the reducer function 
+// from the counter slice and add it to our store. 
+// By defining a field inside the reducers parameter, 
+// we tell the store to use this slice reducer 
+// function to handle all updates to that state.
 
 // import hexcodeReducer from ''
 
 export default configureStore({
   reducer: {
-    // counter: counterReducer,
+    counter: counterReducer
     // hexcode: hexcodeReducer
-  }
+  },
 })
-
