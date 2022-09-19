@@ -4,7 +4,7 @@ const ESLintPlugin = require('eslint-webpack-plugin')
 
 module.exports={
   mode: 'development',
-  entry: './react-app/index.jsx',
+  entry: './react-app/src/index.jsx',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'main_react_bundle.js'
