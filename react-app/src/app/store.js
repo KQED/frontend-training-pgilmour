@@ -1,5 +1,5 @@
-// creates the Redux store instance
-import { configureStore } from '@reduxjs/toolkit'
+import { configureStore } from '@reduxjs/toolkit' // creates the Redux store instance
+
 // The Redux store is created using the configureStore fx from ReduxToolkit
 //configureStore requires that we pass in a `reducer` argument
 
@@ -28,11 +28,11 @@ import counterReducer from '../features/counter/counterSlice'
 // we tell the store to use this slice reducer 
 // function to handle all updates to that state.
 
-// import hexcodeReducer from ''
+import hexcodeReducer from '../features/hexPicker/hexPickerSlice'
 
 export default configureStore({
   reducer: {
-    counter: counterReducer
-    // hexcode: hexcodeReducer
+    counter: counterReducer,
+    hexPicker: hexcodeReducer
   },
 })
