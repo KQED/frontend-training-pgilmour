@@ -1,17 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+const randomValGenerator = Math.floor(Math.random * 256)
+
 export const hexPickerSlice = createSlice({
   name: 'hexPicker',
   initialState: {
-    valueR: 0,
-    valueB: 0,
-    valueG: 0
+    valueRGB: ''
   },
   reducers: {
     randomize: (state) => {
-      state.valueR = Math.floor(Math.random() * 256)
-      state.valueB = Math.floor(Math.random() * 256)
-      state.valueG = Math.floor(Math.random() * 256)
+      state.valueRGB = `rgb(${randomValGenerator}, ${randomValGenerator}, ${randomValGenerator})`
     }
   },
 })
