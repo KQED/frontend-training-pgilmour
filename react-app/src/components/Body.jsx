@@ -1,9 +1,13 @@
 import React from 'react'
+import { HexPicker } from '../features/hexPicker/HexPicker'
 
-class Body extends React.Component {
-  render () {
-    return <p>Hello THere.</p>
-  }
+export function Body () {
+  return (
+    <div>
+      <p>Hello THere.</p>
+      <HexPicker />
+    </div>
+  )
 }
 
 export default Body
