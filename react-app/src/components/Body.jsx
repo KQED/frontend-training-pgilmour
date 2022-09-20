@@ -4,7 +4,6 @@ import { HexPicker } from '../features/hexPicker/HexPicker'
 export function Body () {
   return (
     <div>
-      <p>Hello THere.</p>
       <HexPicker />
     </div>
   )
