@@ -13,7 +13,7 @@ export const hexPickerSlice = createSlice({
         ${Math.floor(Math.random() * 256)},
         ${Math.floor(Math.random() * 256)})`
     }
-  },
+  }
 })
 
 // Action creators are generated for each case reducer fx
