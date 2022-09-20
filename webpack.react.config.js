@@ -1,6 +1,7 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ESLintPlugin = require('eslint-webpack-plugin')
+const sass = require('sass')
 
 module.exports={
   mode: 'development',
@@ -28,6 +29,10 @@ module.exports={
           },
         }
       },
+      {
+        test: /\.(s(a|c)ss)$/,
+        use: ['style-loader', 'css-loader', 'sass-loader']
+      }
     ]
   },
   resolve: {
