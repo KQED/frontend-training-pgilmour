@@ -1,5 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+// In a future ticket, we will have the api create the hex code and deliver it to the frontend
+
 export const hexPickerSlice = createSlice({
   name: 'hexPicker',
   initialState: {
