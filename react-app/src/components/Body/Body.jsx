@@ -1,7 +1,7 @@
 import React from 'react'
-import { HexPicker } from '../features/hexPicker/HexPicker'
+import { HexPicker } from '../../features/hexPicker/HexPicker'
 
-export function Body () {
+function Body () {
   return (
     <div>
       <HexPicker />
