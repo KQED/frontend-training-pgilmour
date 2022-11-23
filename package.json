@@ -12,7 +12,7 @@
     "@babel/plugin-transform-runtime": "^7.18.9",
     "@babel/preset-env": "^7.18.9",
     "@babel/preset-react": "^7.18.6",
-    "@reduxjs/toolkit": "^1.8.5",
+    "@reduxjs/toolkit": "^1.9.0",
     "babel-loader": "^8.2.5",
     "css-loader": "^6.7.1",
     "eslint": "^8.21.0",
@@ -38,5 +38,8 @@
     "eslint": "eslint -c ./.eslintrc.json ./react-app",
     "watch": "webpack --mode=development --watch --config webpack.react.config.js"
   },
-  "repository": "git@github.com:KQED/frontend-training-pgilmour.git"
+  "repository": "git@github.com:KQED/frontend-training-pgilmour.git",
+  "devDependencies": {
+    "source-map-loader": "^4.0.1"
+  }
 }
