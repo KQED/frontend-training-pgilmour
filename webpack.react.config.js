@@ -1,17 +1,25 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ESLintPlugin = require('eslint-webpack-plugin')
-const sass = require('sass')
+const { SourceMapDevToolPlugin } = require('webpack')
+// const sass = require('sass')
 
 module.exports={
   mode: 'development',
   entry: './react-app/src/index.jsx',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'main_react_bundle.js'
+    filename: 'main_react_bundle.js',
+    sourceMapFilename: '[name].js.map'
   },
+  devtool: 'source-map',
   module: {
     rules: [
+      {
+        test: /\.js$/,
+        enforce: 'pre',
+        use: ['source-map-loader'],
+      },
       {
         test: /\.(js|jsx)$/,
         exclude: /(node_modules)/,
@@ -48,6 +56,9 @@ module.exports={
     }),
     new ESLintPlugin({
       extensions:['js', 'jsx', 'json']
+    }),
+    new SourceMapDevToolPlugin({
+      filename: '[file].map'
     }),
   ],
   watchOptions: {
