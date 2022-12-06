@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { randomize } from './hexPickerSlice'
-import style from './HexPicker.scss'
+import styles from './HexPicker.scss'
 
 export function HexPicker () {
   const generatedValue = useSelector((state) => state.hexPicker.valueRGB)
@@ -11,7 +11,7 @@ export function HexPicker () {
   }
   applyColor()
   return (
-    <div className={style}>
+    <div className={styles}>
       <h2>Random RGB Generator</h2>
       <section>
         <p>{generatedValue}</p>
