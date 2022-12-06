@@ -6,9 +6,9 @@ const port = 3001
 app.use(express.json())
 
 let users = [
-  { id: 33, name: 'Sailor Moon', alias: 'Usagi' },
-  { id: 34, name: 'Sailor Mercury', alias: 'Amy' },
-  { id: 98, firstName: 'Reiko', alias: 'Sailor Aluminum Siren' }
+  { id: 33, name: 'Sailor Moon', alias: 'Usagi', alignment: 'Moon Kingdom' },
+  { id: 34, name: 'Sailor Mercury', alias: 'Amy', alignment: 'Moon Kingdom' },
+  { id: 98, name: 'Sailor Aluminum Siren', alias: 'Reiko', alignment: 'Shadow Galactica' }
 ]
 
 app.get('/', (req, res) => {
@@ -33,5 +33,5 @@ app.post('/set-user/:id', (req, res) => {
 })
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+  console.log(`My API Server app listening on port ${port}`)
 })

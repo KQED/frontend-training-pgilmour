@@ -11,5 +11,5 @@ app.get('/', (req, res) => {
 app.use(express.static(path.join(__dirname, '../dist')))
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+  console.log(`My React app listening on port ${port}`)
 })
