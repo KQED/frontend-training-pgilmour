@@ -9,7 +9,9 @@ export const hexPickerSlice = createSlice({
     ${Math.floor(Math.random() * 256)},
     ${Math.floor(Math.random() * 256)})`
   },
-  reducers: {
+  reducers: { // We need 2 values one for the background one for the font
+    // and the ratio between them is 7:1
+    // https://www.had2know.org/technology/color-contrast-calculator-web-design.html
     randomize: (state) => {
       state.valueRGB = `rgb(${Math.floor(Math.random() * 256)},
         ${Math.floor(Math.random() * 256)},
