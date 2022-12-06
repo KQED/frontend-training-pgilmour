@@ -5,6 +5,12 @@
   "author": "Pamela Gilmour",
   "private": true,
   "license": "unlicensed",
+  "scripts": {
+    "build": "webpack --config webpack.react.config.js",
+    "start": "node server/index.js",
+    "eslint": "eslint -c ./.eslintrc.json ./react-app",
+    "watch": "webpack --mode=development --watch --config webpack.react.config.js"
+  },
   "dependencies": {
     "@babel/core": "^7.18.9",
     "@babel/eslint-parser": "^7.18.9",
@@ -31,12 +37,6 @@
     "webpack": "^5.73.0",
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.9.3"
-  },
-  "scripts": {
-    "build": "webpack --config webpack.react.config.js",
-    "start": "node server/index.js",
-    "eslint": "eslint -c ./.eslintrc.json ./react-app",
-    "watch": "webpack --mode=development --watch --config webpack.react.config.js"
   },
   "repository": "git@github.com:KQED/frontend-training-pgilmour.git",
   "devDependencies": {
