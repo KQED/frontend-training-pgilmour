@@ -1,14 +1,15 @@
 // https://github.com/expressjs/express/blob/master/examples/params/index.js
 const express = require('express')
+const cors = require('cors')
 const app = express()
 const port = 3001
 
 app.use(express.json())
 
 let users = [
-  { id: 33, name: 'Sailor Moon', alias: 'Usagi', alignment: 'Moon Kingdom' },
-  { id: 34, name: 'Sailor Mercury', alias: 'Amy', alignment: 'Moon Kingdom' },
-  { id: 98, name: 'Sailor Aluminum Siren', alias: 'Reiko', alignment: 'Shadow Galactica' }
+  { id: 33, name: 'Sailor_Moon', alias: 'Usagi', alignment: 'Moon Kingdom' },
+  { id: 34, name: 'Sailor_Mercury', alias: 'Amy', alignment: 'Moon Kingdom' },
+  { id: 98, name: 'Sailor_Aluminum_Siren', alias: 'Reiko', alignment: 'Shadow Galactica' }
 ]
 
 app.get('/', (req, res) => {
@@ -24,6 +25,11 @@ app.get('/get-user/:id', (req, res) => {
   res.send(user)
 })
 
+app.get('/userAlias/:alias',  cors(), (req, res) => {
+  let user = users.find(element => element.alias === req.params.alias)
+  console.log(user)
+  res.send(user)
+})
 
 // This endpoint takes an existing 'id' and sets a flag called 'loggedin' as true.
 app.post('/set-user/:id', (req, res) => {
