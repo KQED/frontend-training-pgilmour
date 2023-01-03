@@ -3,7 +3,7 @@ import React from 'react'
 import Header from './components/Header/Header'
 import Body from './components/Body/Body'
 import Form from './features/Form/Form'
-import DisplayGetScout from './features/DisplayGetScout/DisplayGetScout'
+// import DisplayGetScout from './features/DisplayGetScout/DisplayGetScout'
 
 function App () {
   return (
@@ -11,7 +11,7 @@ function App () {
       <Header />
       <Body />
       <Form />
-      <DisplayGetScout />
+      {/* <DisplayGetScout /> */}
     </div>
   )
 }
