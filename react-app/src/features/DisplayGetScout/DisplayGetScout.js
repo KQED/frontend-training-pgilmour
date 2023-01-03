@@ -1,13 +1,11 @@
 import * as React from 'react'
-// import { useGetPokemonByNameQuery } from './services/pokemon'
 import { useGetScoutByAliasQuery } from '../../services/sailorScout.js'
 
 export default function DisplayGetScout () {
   // Using a query hook automatically fetches data and returns query values
-  const { data, error, isLoading } = useGetScoutByAliasQuery('Amy')
+  const { data, error, isLoading } = useGetScoutByAliasQuery('Reiko')
   // Individual hooks are also accessible under the generated endpoints:
-  // const { data, error, isLoading } = pokemonApi.endpoints.getPokemonByName.useQuery('bulbasaur')
-  console.log(data)
+  console.log('From `DisplayGetScout`: ', data)
   return (
     <div>
       {error ? (
@@ -17,7 +15,8 @@ export default function DisplayGetScout () {
       ) : data ? (
         <>
           <h3>{data.alias}</h3>
-          {/* <img src={data.sprites.front_shiny} alt={data.species.name} /> */}
+          <p>{data.name}</p>
+          <p>{data.alignment}</p>
         </>
       ) : null}
     </div>
