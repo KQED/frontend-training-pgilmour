@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 // In a future ticket, we will have the api create the hex code and deliver it to the frontend
+// Pull the logic to generate a random number out of the rreducer, per Redux rules.
 
 export const hexPickerSlice = createSlice({
   name: 'hexPicker',
