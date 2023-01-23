@@ -13,7 +13,7 @@ export function HexPicker () {
   return (
     <div className={style}>
       <h2>Random RGB Generator</h2>
-      <section>
+      <div>
         <p>{generatedValue}</p>
         <button
           aria-label='Generate random RGB value'
@@ -21,7 +21,7 @@ export function HexPicker () {
         >
           Click to Generate a Random RBG Value
         </button>
-      </section>
+      </div>
     </div>
   )
 }
