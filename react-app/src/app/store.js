@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
-import hexcodeReducer from '../features/hexPicker/hexPickerSlice'
+import hexcodeReducer from '../slices/hexPickerSlice'
 
 export default configureStore({
   reducer: {
