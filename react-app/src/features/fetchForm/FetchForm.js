@@ -3,7 +3,7 @@ import React from 'react'
 // import { randomize } from '../../slices/hexPickerSlice'
 // import style from './HexPicker.scss'
 
-export function HexPicker () {
+export function FetchForm () {
   // const generatedValue = useSelector((state) => state.hexPicker.valueRGB)
   // const dispatch = useDispatch()
   // const applyColor = () => {
@@ -11,8 +11,8 @@ export function HexPicker () {
   // }
   // applyColor()
   return (
-    <div className={style}>
-      {/* <h2>Random RGB Generator</h2>
+    <div>
+      {/*
       <section>
         <p>{generatedValue}</p>
         <button
@@ -22,6 +22,8 @@ export function HexPicker () {
           Click to Generate a Random RBG Value
         </button>
       </section> */}
+      <p>Hello FetchForm.js</p>
+      <p>Results from Redux fetch for all users: </p>
     </div>
   )
 }
