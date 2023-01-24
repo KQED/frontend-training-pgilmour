@@ -6,14 +6,9 @@ const initialState = [
 ]
 
 export const fetchFormSlice = createSlice({
-  name: 'fetchForm',
+  name: 'users',
   initialState,
   reducers: {
-  //     randomize: (state) => {
-  //       state.valueRGB = `rgb(${Math.floor(Math.random() * 256)},
-  //         ${Math.floor(Math.random() * 256)},
-  //         ${Math.floor(Math.random() * 256)})`
-  //     }
   }
 })
 
