@@ -7,7 +7,7 @@ export const sailorScoutApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3001/' }),
   endpoints: (builder) => ({
     getScoutByAlias: builder.query({
-      query: (alias) => `userAlias/${alias}`
+      query: (alias) => `users/${alias}`
     }),
   }),
 })
