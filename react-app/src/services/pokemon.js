@@ -12,6 +12,19 @@ export const pokemonApi = createApi({
   }),
 })
 
+// This is a different example of the code block above:
+// export const pokemonApi = createApi({
+//   reducerPath: 'pokemonApi',
+//   baseQuery: fetchBaseQuery({ baseUrl: 'https://pokeapi.co/api/v2/' }),
+//   tagTypes: [],
+//   endpoints: (builder) => ({
+//     getPokemonByName: builder.query({
+//       query: (name: string) => `pokemon/${name}`,
+//     }),
+//   }),
+// })
+
+
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
 export const { useGetPokemonByNameQuery } = pokemonApi
