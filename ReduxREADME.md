@@ -4,6 +4,7 @@ I'm stuck so I'm going to comment out all my Sailor scout related code and reins
 
 ## To dos:
 After you do the task above and get it to work: https://redux.js.org/tutorials/essentials/part-7-rtk-query-basics
+And/Or Next do this: https://redux-toolkit.js.org/usage/usage-guide
 
 ## Process:
 
@@ -83,4 +84,6 @@ Let's evaluate the sandbox below - make sure to check the Network panel in your 
 You will see 3 requests, even tho there are 4 subscribed components - `bulbasaur` only makes one request, and the loading state is synchronized between the two components.
 
 For fun, try changing the value of the dropdown from  `Off` to `1s` to see the behavior continue when a query is re-ran.
+
+
 
