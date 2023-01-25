@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import { useGetScoutByAliasQuery } from '../../services/sailorScout.js'
 
 export default function DisplayGetScout () {
@@ -14,9 +14,18 @@ export default function DisplayGetScout () {
         <>Loading...</>
       ) : data ? (
         <>
-          <h3>{data.alias}</h3>
+          <h3>Your fetch for &apos;Reiko&apos; returned the following:</h3>
+          <p>{data.alias}</p>
           <p>{data.name}</p>
           <p>{data.alignment}</p>
+          <h3> Next adjust tasks:</h3>
+          <ul>
+            <li>Create a Form that takes the input to fetch from your sailor api</li>
+            <li> create a field to add a new sailor</li>
+            <li> create a field to modify an existing sailor</li>
+            <li> |_ then fetch the newly modified data directly from the modification mentioned above</li>
+          </ul>
+          <h3> Stretch goal is get a gif fropm giphy</h3>
         </>
       ) : null}
     </div>
