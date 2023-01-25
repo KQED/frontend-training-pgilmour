@@ -1,10 +1,9 @@
-// import React, { useEffect } from 'react'
 import React from 'react'
 import Header from './components/Header/Header'
 import Body from './components/Body/Body'
 import { useGetPokemonByNameQuery } from './services/pokemon'
 // import Form from './features/Form/Form'
-// import DisplayGetScout from './features/DisplayGetScout/DisplayGetScout'
+import DisplayGetScout from './features/DisplayGetScout/DisplayGetScout'
 
 function App () {
   // Using a query hook automatically fetches data and returns query values
@@ -15,7 +14,7 @@ function App () {
     <div className='App'>
       <Header />
       <Body />
-      {/* THe code below doesn't have to stay here, can go in it's own component */}
+      {/* The code below doesn't have to stay here, can/should go in it's own component */}
       {error ? (
         <>Oh no, there was an error</>
       ) : isLoading ? (
@@ -28,7 +27,7 @@ function App () {
       ): null
       }
       {/* <Form /> */}
-      {/* <DisplayGetScout /> */}
+      <DisplayGetScout />
     </div>
   )
 }
