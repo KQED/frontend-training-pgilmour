@@ -1,10 +1,10 @@
-import { createSlice } from '@reduxjs/toolkit'
+// import { createSlice } from '@reduxjs/toolkit'
 
-const initialState = {
-  scouts: []
-  // status:
-}
+// const initialState = {
+//   scouts: []
+//   // status:
+// }
 
-const scoutSlice = createSlice({
+// const scoutSlice = createSlice({
 
-})
+// })
