@@ -33,7 +33,7 @@ This allows you to effectively take advantage of automated re-fetching (https://
 
 For maintainability purposes, you may wish to split up endpoint definitions across multiple files, while still maintaining a single API slice which includes all of these endpoints.
 
-See code splitting (https://redux-toolkit.js.org/rtk-query/usage/code-splitting) for how you can use the `injectEndpoints` property to inject API endpoints from other files into asingle API slice definition.
+See code splitting (https://redux-toolkit.js.org/rtk-query/usage/code-splitting) for how you can use the `injectEndpoints` property to inject API endpoints from other files into a single API slice definition.
 
 #### Add the service to the store
 
