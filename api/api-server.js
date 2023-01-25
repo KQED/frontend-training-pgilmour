@@ -25,7 +25,7 @@ app.get('/get-user/:id', (req, res) => {
   res.send(user)
 })
 
-app.get('/userAlias/:alias',  cors(), (req, res) => {
+app.get('/users/:alias',  cors(), (req, res) => {
   let user = users.find(element => element.alias === req.params.alias)
   console.log(user)
   res.send(user)
