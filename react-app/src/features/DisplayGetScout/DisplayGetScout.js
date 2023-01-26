@@ -19,6 +19,7 @@ export default function DisplayGetScout () {
           <p>{data.name}</p>
           <p>{data.alignment}</p>
           <h3> Next adjust tasks:</h3>
+          <p>Move code out of root files</p>
           <ul>
             <li>Create a Form that takes the input to fetch from your sailor api</li>
             <li> create a field to add a new sailor</li>
