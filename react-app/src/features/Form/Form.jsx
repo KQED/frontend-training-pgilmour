@@ -9,9 +9,7 @@ import { useGetScoutByAliasQuery } from '../../services/sailorScout.js'
 
 
 export default function Form () {
-  console.log('Hello from From.jsx')
   const { data, error, isLoading } = useGetScoutByAliasQuery('Amy')
-  console.log('From Form.jsx: ', data)
   return (
     <div>
       <div>
