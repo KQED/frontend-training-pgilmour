@@ -12,7 +12,7 @@ And/Or Next do this: https://redux-toolkit.js.org/usage/usage-guide
 
 #### Create an API service
 
-First, we'll ceate a service definition that queries the publicly available PokeApi.
+First, we'll create a service definition that queries the publicly available PokeApi.
 
 @ src/services/pokemon.js
 
