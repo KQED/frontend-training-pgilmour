@@ -5,7 +5,6 @@ export default function DisplayGetScout () {
   // Using a query hook automatically fetches data and returns query values
   const { data, error, isLoading } = useGetScoutByAliasQuery('Reiko')
   // Individual hooks are also accessible under the generated endpoints:
-  console.log('From `DisplayGetScout`: ', data)
   return (
     <div>
       {error ? (
@@ -19,8 +18,8 @@ export default function DisplayGetScout () {
           <p>{data.name}</p>
           <p>{data.alignment}</p>
           <h3> Next adjust tasks:</h3>
-          <p>Move code out of root files</p>
           <ul>
+            <li> Create a form in React</li>
             <li>Create a Form that takes the input to fetch from your sailor api</li>
             <li> create a field to add a new sailor</li>
             <li> create a field to modify an existing sailor</li>
