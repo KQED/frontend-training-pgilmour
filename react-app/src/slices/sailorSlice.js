@@ -49,7 +49,7 @@ export const fetchData = () => async (dispatch, getState) => {
   dispatch(fetchDataStart())
 
   try {
-    const inputValue = getState().form.inputValue
+    const inputValue = getState().scoutForm.inputValue
     const response = await fetch(`http://localhost:3001/users?q=${inputValue}`)
     const data = await response.json()
 
