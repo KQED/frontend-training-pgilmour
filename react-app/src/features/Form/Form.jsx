@@ -11,7 +11,7 @@ export default function Form () {
   }
 
   const handleSubmit = (event) => {
-    alert('An alias was submitted: ' + alias)
+    alert('An alias was submitted: ' + alias) // This is working
     event.preventDefault
   }
 
@@ -31,6 +31,8 @@ export default function Form () {
           </label><br/>
           <input type='submit' value='Submit' />
         </form>
+        {/* Adjust the code below to render to design.
+        It is working but we need it to render when we want it to not immediately */}
         {
           error ? (
             <>Oh no, there was an error</>
@@ -38,7 +40,7 @@ export default function Form () {
             <>Loading...</>
           ) : data ? (
             <>
-              <h3>Your fetch for &apos;Reiko&apos; returned the following:</h3>
+              <h3>Your fetch for &apos;{alias}&apos; returned the following:</h3>
               <p>{data.alias}</p>
               <p>{data.name}</p>
               <p>{data.alignment}</p>
