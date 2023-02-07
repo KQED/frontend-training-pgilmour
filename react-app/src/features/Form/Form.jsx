@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-// import { useGetScoutByAliasQuery } from '../../services/sailorScout.js'
+import { useGetScoutByAliasQuery } from '../../services/sailorScout.js'
 
-{/* <li>Create a Form that takes the input to fetch from your sailor api</li> */}
+{/* Create a Form that takes the input to fetch from your sailor api */}
 export default function Form () {
   const [ alias, setAlias ] = useState('')
-  // const { data, error, isLoading } = useGetScoutByAliasQuery('Reiko')
-  // const { data, error, isLoading } = useGetScoutByAliasQuery(document.getElementById('getName'))
+  const { data, error, isLoading } = useGetScoutByAliasQuery(alias)
+
   const handleChange = (event) => {
     setAlias(event.target.value)
   }
@@ -31,17 +31,21 @@ export default function Form () {
           </label><br/>
           <input type='submit' value='Submit' />
         </form>
+        {
+          error ? (
+            <>Oh no, there was an error</>
+          ) : isLoading ? (
+            <>Loading...</>
+          ) : data ? (
+            <>
+              <h3>Your fetch for &apos;Reiko&apos; returned the following:</h3>
+              <p>{data.alias}</p>
+              <p>{data.name}</p>
+              <p>{data.alignment}</p>
+            </>
+          ): null
+        }
       </div>
-      {/* <div>
-        <h2 id='displayInput'>Your Sailor entry:</h2>
-        {error ? (<>Oh no, there was an error</>) : isLoading ? (<>Loading...</>) : data ? (
-          <>
-            <h3>{data.alias}</h3>
-            <p>{data.name}</p>
-            <p>{data.alignment}</p>
-          </>
-        ) : null}
-      </div> */}
     </div>
   )
 }
