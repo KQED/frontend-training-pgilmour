@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit'
-import hexcodeReducer from '../slices/hexPickerSlice'
+import hexcodeReducer from './slices/hexPickerSlice'
 import { setupListeners } from '@reduxjs/toolkit/query'
-import { pokemonApi } from '../services/pokemon'
-import { sailorScoutApi } from '../services/sailorScout'
+import { pokemonApi } from './services/pokemon'
+import { sailorScoutApi } from './services/sailorScout'
 
 export const store = configureStore({
   reducer: {
