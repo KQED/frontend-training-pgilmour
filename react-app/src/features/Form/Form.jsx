@@ -1,17 +1,22 @@
 import React, { useState } from 'react'
 import { useGetScoutByAliasQuery } from '../../services/sailorScout.js'
 
-{/* Create a Form that takes the input to fetch from your sailor api */}
 export default function Form () {
   const [ alias, setAlias ] = useState('')
-  const { data, error, isLoading } = useGetScoutByAliasQuery(alias)
+  // const { data, error, isLoading } = useGetScoutByAliasQuery(alias)
 
+  const { data, error, isLoading } = alias ? useGetScoutByAliasQuery(alias)
+    : {
+      data: null,
+      error: null,
+      isLoading: false
+    }
   const handleChange = (event) => {
     setAlias(event.target.value)
   }
 
   const handleSubmit = (event) => {
-    alert('An alias was submitted: ' + alias) // This is working
+    console.log('An alias was submitted: ' + alias)
     event.preventDefault
   }
 
@@ -47,6 +52,15 @@ export default function Form () {
             </>
           ): null
         }
+        <h3> Next tasks:</h3>
+        <ul>
+          <li>completed - Create a form in React</li>
+          <li>completed - Create a Form that takes the input to fetch from your sailor api</li>
+          <li> create a field to add a new sailor</li>
+          <li> create a field to modify an existing sailor</li>
+          <li> |_ then fetch the newly modified data directly from the modification mentioned above</li>
+        </ul>
+        <h3> Stretch goal is get a gif from giphy</h3>
       </div>
     </div>
   )
