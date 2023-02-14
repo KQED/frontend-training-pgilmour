@@ -1,11 +1,18 @@
 import React, { useState } from 'react'
-import { useGetScoutByAliasQuery } from '../../services/sailorScout.js'
+// import { useGetScoutByAliasQuery, usePostScoutMutation } from '../../services/sailorScout.js'
+import  { fetchSailor, sailorError, sailorLoading, selectSailor } from '../../slices/sailorSlice'
+import { useSelector } from 'react-redux'
 
 export default function Form () {
   const [ alias, setAlias ] = useState('')
-  const [ addedSailor, setAddedSailor ] = useState('')
-  const { data, error, isLoading } = useGetScoutByAliasQuery(alias)
-  // const { data, error, isLoading } = useAddScoutQuery()
+  const [ postedSailor, setPostedSailor ] = useState('')
+  const sailor = useSelector((state) => {
+    return selectSailor(state, alias)
+  })
+  const error = useSelector(sailorError)
+  const isLoading = useSelector(sailorLoading)
+  // const { data, error, isLoading } = useGetScoutByAliasQuery(alias)
+  // const { data, error, isLoading } = usePostScoutMutation(body) // 
 
 
   const handleChange = (event) => {
@@ -13,16 +20,21 @@ export default function Form () {
   }
 
   const handleSubmit = (event) => {
-    alert('An alias was submitted: ' + alias)
+    
+    // fetchSailor(alias)
+    // alert('An alias was submitted: ' + alias)
+    const aliasInput = event.target.elements.aliasInput.value
+    setAlias(aliasInput)
+    fetchSailor(aliasInput)
     event.preventDefault()
   }
 
-  const handleAddChange = (event) => {
-    setAddedSailor(event.target.value)
+  const handlePostChange = (event) => {
+    setPostedSailor(event.target.value)
   }
 
-  const handleAddSubmit = (event) => {
-    alert('A sailor scout was added: ' + addedSailor)
+  const handlePostSubmit = (event) => {
+    alert('A sailor scout was added: ' + postedSailor)
     event.preventDefault()
   }
 
@@ -33,6 +45,7 @@ export default function Form () {
         <form onSubmit={handleSubmit}>
           <label>Sailor&apos;s Alias:
             <input
+              name='aliasInput'
               type='text'
               value={alias}
               placeholder='Usagi'
@@ -49,25 +62,25 @@ export default function Form () {
             <>Oh no, there was an error</>
           ) : isLoading ? (
             <>Loading...</>
-          ) : data ? (
+          ) : sailor ? (
             <>
               <h3>Your fetch for &apos;{alias}&apos; returned the following:</h3>
-              <p>{data.alias}</p>
-              <p>{data.name}</p>
-              <p>{data.alignment}</p>
+              <p>{sailor.alias}</p>
+              <p>{sailor.name}</p>
+              <p>{sailor.alignment}</p>
             </>
           ): null
         }
       </div>
       <div>
-        <h2 id='getData'>Add a Sailor Scout:</h2>
-        <form onSubmit={handleAddSubmit}>
+        <h2>Add a Sailor Scout:</h2>
+        <form onSubmit={handlePostSubmit}>
           <label>Add Alias:
             <input
               type='text'
-              value={addedSailor}
+              value={postedSailor}
               placeholder='Enter sailor scout'
-              onChange={handleAddChange}
+              onChange={handlePostChange}
             />
             <br/>
           </label><br/>
