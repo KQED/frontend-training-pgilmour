@@ -1,20 +1,28 @@
 // Need to use the React-specific entry point to import createApi
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+// import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
-// Define a service using a base URL and expected endpoints
-export const sailorScoutApi = createApi({
-  reducerPath: 'sailorScoutApi',
-  baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3001/' }),
-  endpoints: (builder) => ({
-    getScoutByAlias: builder.query({
-      query: (alias) => `users/${alias}`
-    }),
-  }),
-})
+// // Define a service using a base URL and expected endpoints
+// export const sailorScoutApi = createApi({
+//   reducerPath: 'sailorScoutApi',
+//   baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3001/' }),
+//   endpoints: (builder) => ({
+//     getScoutByAlias: builder.query({
+//       query: (alias) => `users/${alias}`
+//     }),
+//     postScout: builder.mutation({
+//       query: (body) => ({
+//         url: 'users',
+//         method: 'POST',
+//         body
+//       }),
+//       // invalidatesTags: ['Posts'] // From docs, I don't think I need this
+//     })
+//   }),
+// })
 
-// Export hooks for usage in functional components, which are
-// auto-generated based on the defined endpoints
-export const { useGetScoutByAliasQuery } = sailorScoutApi
+// // Export hooks for usage in functional components, which are
+// // auto-generated based on the defined endpoints
+// export const { useGetScoutByAliasQuery, usePostScoutMutation } = sailorScoutApi
 
 // Typically, you should only have one API slice per base URL that your application needs to communicate with.
 // For example, if your site fetches data from both /api/posts and /api/users,
