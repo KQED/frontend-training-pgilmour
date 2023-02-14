@@ -43,19 +43,29 @@ const scoutFormSlice = createSlice({
 
 export const { updateInputValue, fetchDataStart, fetchDataSuccess, fetchDataFailure } = scoutFormSlice.actions
 
-export default scoutFormSlice.reducer
-
-export const fetchData = () => async (dispatch, getState) => {
+export const fetchSailor = (alias) => async (dispatch, getState) => {
   dispatch(fetchDataStart())
 
   try {
-    const inputValue = getState().scoutForm.inputValue
-    const response = await fetch(`http://localhost:3001/users?q=${inputValue}`)
+    const response = await fetch(`http://localhost:3001/users?q=${alias}`)
     const data = await response.json()
 
     dispatch(fetchDataSuccess(data))
   } catch (error) {
     dispatch(fetchDataFailure(error))
   }
-
 }
+
+export const selectSailor = (state, alias) => {
+  return state.scoutForm.data[alias]
+}
+
+export const sailorError = (state) => {
+  return state.scoutForm.error
+}
+
+export const sailorLoading = (state) => {
+  return state.scoutForm.loading
+}
+
+export default scoutFormSlice.reducer
