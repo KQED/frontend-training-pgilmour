@@ -1,16 +1,17 @@
 import React from 'react'
-// import ReactDOM from 'react-dom/client'
 import {
   createBrowserRouter,
   RouterProvider,
 } from 'react-router-dom'
 import { Header } from './components/Header'
 import Body from './components/Body'
+import ErrorPage from './error-page'
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <div>Hello world!</div>,
+    errorElement: <ErrorPage />,
   },
 ])
 

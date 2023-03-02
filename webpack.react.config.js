@@ -1,7 +1,7 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ESLintPlugin = require('eslint-webpack-plugin')
-const sass = require('sass')
+// const sass = require('sass')
 
 module.exports={
   mode: 'development',
