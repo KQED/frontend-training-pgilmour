@@ -5,6 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const srcPath = (...filePath) => path.resolve('src', ...filePath)
 
 module.exports={
+  devtool: 'source-map',
   mode: 'development',
   entry: '/react-app/src/index.js',
   output: {
