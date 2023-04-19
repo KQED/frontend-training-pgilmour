@@ -4,13 +4,13 @@ import {
   RouterProvider,
 } from 'react-router-dom'
 import { Header } from './components/Header/Header'
-import Body from './components/Body'
-import ErrorPage from './error-page'
+import Root from './routes/root'
+import ErrorPage from './routes/error-page'
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <div>Hello world!</div>,
+    element: <Root />,
     errorElement: <ErrorPage />,
   },
 ])
@@ -19,7 +19,6 @@ function App () {
   return (
     <div className='App'>
       <Header />
-      <Body />
       <RouterProvider router={router} />
     </div>
   )
