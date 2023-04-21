@@ -1,26 +1,23 @@
 import React from 'react'
 import {
-  createBrowserRouter,
-  RouterProvider,
+  BrowserRouter,
+  Routes,
+  Route
 } from 'react-router-dom'
 import { Header } from './components/Header/Header'
-import Root from './routes/root'
-import ErrorPage from './routes/error-page'
+import Home from './components/Home/Home'
+import HexCodePicker from './components/HexCodePicker/HexCodePicker'
 
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <Root />,
-    errorElement: <ErrorPage />,
-  },
-])
 
 function App () {
   return (
-    <div className='App'>
+    <BrowserRouter>
       <Header />
-      <RouterProvider router={router} />
-    </div>
+      <Routes>
+        <Route exact path='/' element={<Home />} />
+        <Route path='/hex-picker' element={<HexCodePicker />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
