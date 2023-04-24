@@ -75,7 +75,8 @@ module.exports={
               sourceMap: true,
               sassOptions: {
                 includePaths: [
-                  srcPath('styles')
+                  path.resolve(__dirname, 'src/styles')
+                  // srcPath('styles')
                 ]
               }
             }
