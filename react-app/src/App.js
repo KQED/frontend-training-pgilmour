@@ -1,13 +1,25 @@
 import React from 'react'
-import Header from './components/Header/Header'
-import Body from './components/Body/Body'
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from 'react-router-dom'
+import { Header } from './components/Header/Header'
+import Home from './components/Home/Home'
+import HexCodePicker from './routes/HexCodePicker/HexCodePicker'
+import Cats from './routes/Cats/Cats'
+
 
 function App () {
   return (
-    <div className='App'>
+    <BrowserRouter>
       <Header />
-      <Body />
-    </div>
+      <Routes>
+        <Route exact path='/' element={<Home />} />
+        <Route path='/hex-picker' element={<HexCodePicker />} />
+        <Route exact path='cats' element={<Cats />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 

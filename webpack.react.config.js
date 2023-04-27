@@ -3,16 +3,21 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ESLintPlugin = require('eslint-webpack-plugin')
 const { SourceMapDevToolPlugin } = require('webpack')
 // const sass = require('sass')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const srcPath = (...filePath) => path.resolve('src', ...filePath)
 
 module.exports={
+  devtool: 'source-map',
   mode: 'development',
-  entry: './react-app/src/index.jsx',
+  entry: '/react-app/src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'main_react_bundle.js',
     sourceMapFilename: '[name].js.map'
   },
-  devtool: 'source-map',
+  stats: {
+    loggingDebug: ['sass-loader'],
+  },
   module: {
     rules: [
       {
@@ -38,8 +43,53 @@ module.exports={
         }
       },
       {
-        test: /\.(s(a|c)ss)$/,
-        use: ['style-loader', 'css-loader', 'sass-loader']
+        test: /\.css$/i,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              import: true,
+              importLoaders: 1,
+              sourceMap: true,
+              modules: {
+                localIdentName: '[path]__[name]__[local]',
+                localIdentContext: srcPath()
+              }
+            }
+          }
+        ]
+      },
+      {
+        test: /\.(sass|scss)$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              import: true,
+              importLoaders: 1,
+              sourceMap: true,
+              modules: {
+                localIdentName: '[path]__[name]__[local]',
+                localIdentContext: srcPath()
+              }
+            }
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              implementation: require('sass'),
+              sourceMap: true,
+              sassOptions: {
+                includePaths: [
+                  path.resolve(__dirname, 'src/styles')
+                  // srcPath('styles')
+                ]
+              }
+            }
+          }
+        ]
       }
     ]
   },
@@ -60,6 +110,7 @@ module.exports={
     new SourceMapDevToolPlugin({
       filename: '[file].map'
     }),
+    new MiniCssExtractPlugin(),
   ],
   watchOptions: {
     ignored: path.resolve(__dirname, 'node_modules'),

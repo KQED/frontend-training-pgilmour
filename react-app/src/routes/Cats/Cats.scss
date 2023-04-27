@@ -1,0 +1,15 @@
+@use '../../styles/base';
+
+.catPage {
+  h2 {
+    background-color: palegreen;
+    width:fit-content;
+    padding: 15px;
+  }
+
+  p {
+    background-color: peachpuff;
+    padding: 15px;
+    width: 50%;
+  }
+}
