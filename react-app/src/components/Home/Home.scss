@@ -1,0 +1,17 @@
+@use '../../styles/base';
+
+.homeSection {
+  h2 {
+    width:fit-content
+  }
+
+  h2,
+  p {
+    background-color: peachpuff;
+    padding: 15px;
+  }
+
+  p {
+    width: 50%;
+  }
+}
