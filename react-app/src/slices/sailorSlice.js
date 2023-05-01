@@ -43,7 +43,7 @@ const scoutFormSlice = createSlice({
 
 export const { updateInputValue, fetchDataStart, fetchDataSuccess, fetchDataFailure } = scoutFormSlice.actions
 
-export const fetchSailor = (alias) => async (dispatch, getState) => {
+export const fetchSailor = (alias) => async (dispatch) => {
   dispatch(fetchDataStart())
 
   try {
