@@ -1,10 +1,11 @@
 // https://github.com/expressjs/express/blob/master/examples/params/index.js
-// This sets up a HTTP server (as opposed to a HTTPS server, no SSL/TLS certificate)
+// This sets up a HTTP server (as opposed to a HTTPS server, were not going to use a SSL/TLS certificate)
 const express = require('express')
 const app = express()
 const port = 3001
+const cors = require('cors')
 
-app.use(express.json())
+app.use(cors())
 
 let sailors = [
   { id: 33, name: 'Sailor Moon', alias: 'Usagi' },
