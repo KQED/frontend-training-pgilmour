@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { randomize } from './hexPickerSlice'
+import { randomize } from '../../slices/hexPickerSlice'
 import style from './HexPicker.scss'
 
 export function HexPicker () {
