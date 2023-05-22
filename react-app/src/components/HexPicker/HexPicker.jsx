@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { randomize } from '../../slices/hexPickerSlice'
 import style from './HexPicker.scss'
 
-export function HexPicker () {
+export default function HexPicker () {
   const generatedValue = useSelector((state) => state.hexPicker.valueRGB)
   const dispatch = useDispatch()
   const applyColor = () => {
