@@ -1,33 +1,35 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+// the objective is: to set global state
+
 export const sailorsSlice = createSlice({
   name: 'sailors',
   initialState: {},
   reducers: {
     receiveAllSailors: (state, action) => {
       const data = action.payload
-      state['allSailors'] =  {
+      state['allSailors'] = {
         data: data,
         isLoading: false,
         error: null
       }
+      console.log(data)
     },
-    // setIsLoading: (state, action) => {
-    //   state['allSailors'] =  {
-    //     data: null,
-    //     isLoading: true,
-    //     error: null
-    //   }
-    // },
-    // setError: (state, action) => {
-
-    // }
+    setIsLoading: (state) => {
+      state['allSailors'] = {
+        data: null,
+        isLoading: true,
+        error: null
+      }
+    },
   }
 })
 
-export const { receiveSailors } = sailorsSlice.actions
+export const { receiveAllSailors, setIsLoading } = sailorsSlice.actions
 
-export const fetchAllSailors = () => {
+export const fetchAllSailors = (dispatch) => {
+
+  dispatch(setIsLoading())
 
   const url = 'http://localhost:3001/sailors'
   const requestOptions = {
@@ -46,14 +48,25 @@ export const fetchAllSailors = () => {
     // .json() is an async method that returns another Promise
     // it reads the response and parses it as json
     // 
-    .then(response => response.json() )
-    .then(data => {
-      console.log(data)
-    })
-    .catch(error => {
-      console.log('Fetch error:', error)
-    })
-
+    .then(
+      (response) => {
+        if(response.ok) {
+          return response.json()
+        }
+      },
+      (error) => {
+        console.log('Fetch error:', error) // change to console.warn
+        // Add dispatch Error
+      }
+    )
+    .then(
+      (response) => {
+        console.log(response)
+        dispatch(receiveAllSailors({
+          allSailors: response,
+        }))
+      }
+    )
 }
 
 export default sailorsSlice.reducer
