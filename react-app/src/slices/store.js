@@ -1,8 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
-import hexcodeReducer from './hexPickerSlice'
+import hexCodeReducer from './hexPickerSlice'
+import sailorsReducer from './sailorsSlice'
 
 export default configureStore({
   reducer: {
-    hexPicker: hexcodeReducer
+    hexPicker: hexCodeReducer,
+    sailors: sailorsReducer
   }
 })
