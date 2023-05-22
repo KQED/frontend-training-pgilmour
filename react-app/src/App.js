@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom'
 import { Header } from './components/Header/Header'
 import Home from './components/Home/Home'
-import HexCodePicker from './routes/HexCodePicker/HexCodePicker'
+import HexCodePicker from './routes/HexPickerRoute/HexPickerRoute'
 import Cats from './routes/Cats/Cats'
 
 
