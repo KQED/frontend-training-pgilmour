@@ -9,10 +9,10 @@ Building and running
 See package.json for the details of the commands below.
 
 To run without SSR:
-To run express app only: `$ yarn node ./server/index.js` or `yarn server`
 
-To build entire project, express to deliver react: `$ yarn build`
-To start entire project, express server delivers react frontend: `$ yarn start`
++ To build entire project, express to deliver react: `$ yarn build`
+
++ To start entire project, express server delivers react frontend: `$ yarn start`
 
 ## Redis and redis-cli
 ### KSM-3867 Deliverables
