@@ -1,16 +1,35 @@
 import React, { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { fetchAllSailors } from '../../slices/sailorsSlice'
 
 
 export default function SailorForm () {
+
+  const allSailorsData = useSelector(state => state.sailors.data)
+
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(fetchAllSailors)
+    // console.log('Hello from useEffect with fetch')
+    dispatch(fetchAllSailors())
   }, [])
 
+  if(!allSailorsData) {
+    return null
+  }
+
+  console.log('allSailorsData', allSailorsData)
   return (
-    <p>Yo! Future Home of the Sailor Form</p>
+    <div>
+      <p>Yo! Future Home of the Sailor Form</p>
+      {
+        allSailorsData.map((element, index) => {
+          return (
+            <p key={index}>{element.name}</p>
+          )
+        })
+      }
+    </div>
+
   )
 }
