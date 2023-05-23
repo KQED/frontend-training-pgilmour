@@ -1,7 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-// the objective is: to set global state
-
 export const sailorsSlice = createSlice({
   name: 'sailors',
   initialState: {},
@@ -33,15 +31,12 @@ export const {
 } = sailorsSlice.actions
 
 export const fetchAllSailors = () => {
-  return (dispatch) => { // pass diapatch function as an arg
+  return (dispatch) => {
     dispatch(setIsLoading())
 
     const url = 'http://localhost:3001/sailors'
     const requestOptions = {
-      // method specifies HTTP method to be used, usually required
       method: 'GET',
-      // headers provide more info about the request
-      // can do a deep dive on headers, especially with POST
       headers: {
         'Content-Type': 'application/json'
       }
@@ -62,7 +57,7 @@ export const fetchAllSailors = () => {
       )
       .then(
         (response) => {
-          console.log('response from second then in the fetch', response)
+          // console.log('response from second then in the fetch', response)
           dispatch(receiveAllSailors({ allSailors: response }))
         }
       )
