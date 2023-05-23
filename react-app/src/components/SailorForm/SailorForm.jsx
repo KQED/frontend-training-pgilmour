@@ -10,7 +10,6 @@ export default function SailorForm () {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    // console.log('Hello from useEffect with fetch')
     dispatch(fetchAllSailors())
   }, [])
 
@@ -18,17 +17,16 @@ export default function SailorForm () {
     return null
   }
 
-  console.log('allSailorsData', allSailorsData)
   return (
     <div>
       <p>Yo! Future Home of the Sailor Form</p>
-      {
-        allSailorsData.map((element, index) => {
-          return (
-            <p key={index}>{element.name}</p>
-          )
-        })
-      }
+      <ul>
+        {
+          allSailorsData.allSailors.map((element, index) => {
+            return <li key={index}>{element.name}</li>
+          })
+        }
+      </ul>
     </div>
 
   )
