@@ -10,6 +10,10 @@ export const sailorsSlice = createSlice({
       state.isLoading = false
       state.error = null
     },
+    addSailor: (state, action) => {
+      const sailor = action.payload
+      // state.data.push(sailor)
+    },
     setIsLoading: (state) => {
       state.data = null
       state.isLoading = true
@@ -26,6 +30,7 @@ export const sailorsSlice = createSlice({
 
 export const {
   receiveAllSailors,
+  addSailor,
   setIsLoading,
   setError
 } = sailorsSlice.actions
