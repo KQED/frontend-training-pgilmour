@@ -10,7 +10,7 @@ app.use(cors())
 let sailors = [
   { id: 33, name: 'Sailor Moon', alias: 'Usagi' },
   { id: 34, name: 'Sailor Mercury', alias: 'Amy' },
-  { id: 98, firstName: 'Reiko', alias: 'Sailor Aluminum Siren' }
+  { id: 98, name: 'Sailor Aluminum Siren', alias: 'Reiko' }
 ]
 
 app.get('/', (req, res) => {
