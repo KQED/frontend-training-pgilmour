@@ -2,17 +2,22 @@ import { createSlice } from '@reduxjs/toolkit'
 
 export const sailorsSlice = createSlice({
   name: 'sailors',
-  initialState: {},
+  initialState: {
+    data: [],
+    isLoading: false,
+    error: null
+  },
   reducers: {
     receiveAllSailors: (state, action) => {
       const data = action.payload
+      // console.log('data = action.payload in recieveAllSailors', typeof data) // object
       state.data = data
       state.isLoading = false
       state.error = null
     },
     addSailor: (state, action) => {
       const sailor = action.payload
-      // state.data.push(sailor)
+      state.data.push(sailor)
     },
     setIsLoading: (state) => {
       state.data = null
