@@ -2,11 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 export const sailorsSlice = createSlice({
   name: 'sailors',
-  initialState: {
-    data: [],
-    isLoading: false,
-    error: null
-  },
+  initialState: {},
   reducers: {
     receiveAllSailors: (state, action) => {
       const data = action.payload
@@ -17,7 +13,7 @@ export const sailorsSlice = createSlice({
     },
     addSailor: (state, action) => {
       const sailor = action.payload
-      state.data.push(sailor)
+      state.data.allSailors.push(sailor)
     },
     setIsLoading: (state) => {
       state.data = null
@@ -53,24 +49,23 @@ export const fetchAllSailors = () => {
     }
 
     fetch(url, requestOptions)
-      .then(
-        (response) => {
-          if(response.ok) {
-            // console.log('response from first then in the fetch', response)
-            return response.json()
-          }
-        },
-        (error) => {
-          console.warn('Fetch error:', error)
-          // dispatch(setError(error))
+      .then((response) => {
+        if(response.ok) {
+          // console.log('response from first then in the fetch', response)
+          return response.json()
+        } else {
+          throw new Error('response did not return "ok"')
         }
-      )
+      })
       .then(
         (response) => {
-          // console.log('response from second then in the fetch', response)
+        // console.log('response from second then in the fetch', response)
           dispatch(receiveAllSailors({ allSailors: response }))
         }
       )
+      .catch(error => {
+        dispatch(setError(error.message))
+      })
   }
 }
 
