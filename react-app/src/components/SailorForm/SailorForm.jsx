@@ -1,24 +1,29 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchAllSailors } from '../../slices/sailorsSlice'
+import { addSailor, fetchAllSailors } from '../../slices/sailorsSlice'
 
 
 export default function SailorForm () {
-  const [name, setName] = useState('')
-  const [alias, setAlias] = useState('')
+  const [sailorName, setSailorName] = useState('')
+  const [sailorAlias, setSailorAlias] = useState('')
 
   const handleNameChange = (e) => {
-    setName(e.target.value)
+    setSailorName(e.target.value)
   }
 
   const handleAliasChange = (e) => {
-    setAlias(e.target.value)
+    setSailorAlias(e.target.value)
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('name:', name)
-    console.log('alias:', alias)
+    console.log('name:', sailorName)
+    console.log('alias:', sailorAlias)
+    const sailorData = {
+      name: sailorName,
+      alias: sailorAlias
+    }
+    dispatch(addSailor(sailorData))
 
   }
   const allSailorsData = useSelector(state => state.sailors.data)
@@ -29,13 +34,18 @@ export default function SailorForm () {
     dispatch(fetchAllSailors())
   }, [])
 
+  useEffect(() => {
+    console.log('State changed:', { sailorName, sailorAlias })
+  }, [sailorName, sailorAlias])
+
   if(!allSailorsData) {
     return null
   }
 
+  console.log('allSailorsData', allSailorsData)
   return (
     <div>
-      <p>Yo! Future Home of the Sailor Form</p>
+      <h2>Sailor Moon Universe Character Form</h2>
       <ul>
         {
           allSailorsData.allSailors.map((element, index) => {
@@ -46,18 +56,16 @@ export default function SailorForm () {
       <form onSubmit={handleSubmit}>
         <label>
           Name:
-          <input type='text' value={name} onChange={handleNameChange} />
+          <input type='text' value={sailorName} onChange={handleNameChange} />
         </label>
         <br />
         <label>
           Alias:
-          <input type='text' value={alias} onChange={handleAliasChange} />
+          <input type='text' value={sailorAlias} onChange={handleAliasChange} />
         </label>
         <br />
         <button type='submit'>Submit</button>
       </form>
-
     </div>
-
   )
 }
