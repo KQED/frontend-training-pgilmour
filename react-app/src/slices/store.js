@@ -6,5 +6,6 @@ export default configureStore({
   reducer: {
     hexPicker: hexCodeReducer,
     sailors: sailorsReducer
-  }
+  },
+  devTools: true
 })
