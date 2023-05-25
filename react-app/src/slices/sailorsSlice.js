@@ -2,7 +2,11 @@ import { createSlice } from '@reduxjs/toolkit'
 
 export const sailorsSlice = createSlice({
   name: 'sailors',
-  initialState: {},
+  initialState: {
+    data: JSON.parse(localStorage.getItem('sailors')) || null,
+    isLoading: false,
+    error: null
+  },
   reducers: {
     receiveAllSailors: (state, action) => {
       const data = action.payload
@@ -10,6 +14,7 @@ export const sailorsSlice = createSlice({
       state.data = data
       state.isLoading = false
       state.error = null
+      localStorage.setItem('sailors', JSON.stringify(data))
     },
     addSailor: (state, action) => {
       const sailor = action.payload
@@ -37,7 +42,13 @@ export const {
 } = sailorsSlice.actions
 
 export const fetchAllSailors = () => {
-  return (dispatch) => {
+  return (dispatch, getState) => {
+    const { sailors } = getState()
+
+    if (sailors.data) { // Checks if data is present, prevents state reset on route switch
+      return
+    }
+
     dispatch(setIsLoading())
 
     const url = 'http://localhost:3001/sailors'
