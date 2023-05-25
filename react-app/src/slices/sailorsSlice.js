@@ -18,6 +18,10 @@ export const sailorsSlice = createSlice({
     },
     addSailor: (state, action) => {
       const sailor = action.payload
+      const existingIds = state.data.allSailors.map(sailor => sailor.id) // create an array of exisiting ids
+      let sailorId = generateUUID(existingIds)
+      sailor.id = sailorId
+      // console.log(sailor.id)
       state.data.allSailors.push(sailor)
     },
     setIsLoading: (state) => {
@@ -33,6 +37,15 @@ export const sailorsSlice = createSlice({
     },
   }
 })
+
+// A function that generates a unique user id and checks if it exists in the array of existing ids
+const generateUUID = (existingIds) => {
+  let id = Math.floor(Math.random() * 100)
+  while (existingIds.includes(id)) {
+    id = Math.floor(Math.random() * 100)
+  }
+  return id
+}
 
 export const {
   receiveAllSailors,
