@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { addSailor, fetchAllSailors } from '../../slices/sailorsSlice'
+import styles from './SailorForm.scss'
 
 
 export default function SailorForm () {
+  const dispatch = useDispatch()
+  const allSailorsData = useSelector(state => state.sailors.data)
+
   const [sailorName, setSailorName] = useState('')
   const [sailorAlias, setSailorAlias] = useState('')
 
@@ -17,52 +21,44 @@ export default function SailorForm () {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('name:', sailorName)
-    console.log('alias:', sailorAlias)
     const sailorData = {
       name: sailorName,
       alias: sailorAlias
     }
     dispatch(addSailor(sailorData))
+    setSailorName('')
+    setSailorAlias('')
 
   }
-  const allSailorsData = useSelector(state => state.sailors.data)
-
-  const dispatch = useDispatch()
 
   useEffect(() => {
     dispatch(fetchAllSailors())
   }, [])
 
-  useEffect(() => {
-    console.log('State changed:', { sailorName, sailorAlias })
-  }, [sailorName, sailorAlias])
-
-  if(!allSailorsData) {
-    return null
-  }
-
-  console.log('allSailorsData', allSailorsData)
+  // console.log('allSailorsData', allSailorsData)
   return (
     <div>
       <h2>Sailor Moon Universe Character Form</h2>
-      <ul>
+      <ul className={styles.sailorList}>
         {
-          allSailorsData.allSailors.map((element, index) => {
+          allSailorsData && allSailorsData.allSailors.map((element, index) => {
             return <li key={index}>{element.name}</li>
           })
         }
       </ul>
+      <h3>Add a Sailor Guardian or Dark Kingdom villain:</h3>
       <form onSubmit={handleSubmit}>
         <label>
           Name:
           <input type='text' value={sailorName} onChange={handleNameChange} />
         </label>
         <br />
+        <br />
         <label>
           Alias:
           <input type='text' value={sailorAlias} onChange={handleAliasChange} />
         </label>
+        <br />
         <br />
         <button type='submit'>Submit</button>
       </form>
