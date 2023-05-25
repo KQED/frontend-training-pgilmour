@@ -33,7 +33,7 @@ export const hexPickerSlice = createSlice({
         return oppositeValue.toString()
       })
 
-      console.log('From oppositeColor reducer:', oppositeColor)
+      // console.log('From oppositeColor reducer:', oppositeColor)
       state.oppositeValueRGB = `rgb(${oppositeColor.join(',')})` // joins the values in the map array
     }
   }
