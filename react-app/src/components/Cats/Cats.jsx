@@ -4,7 +4,7 @@ import styles from './Cats.scss'
 // Write a fetch to get a random cat gif/sticker from giphy
 const fetchCatGif = () => {
 
-  const apikey = 'G7JejupU2nSKXKrA3drgiA3SPMQ4W2iL'
+  const apikey = process.env.CAT_GIF_KEY
   const url = `https://api.giphy.com/v1/gifs/random?api_key=${apikey}&tag=cat`
 
   return fetch (url)
