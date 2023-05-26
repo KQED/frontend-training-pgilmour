@@ -1,34 +1,37 @@
 // https://github.com/expressjs/express/blob/master/examples/params/index.js
+// This sets up a HTTP server (as opposed to a HTTPS server, were not going to use a SSL/TLS certificate)
 const express = require('express')
 const app = express()
 const port = 3001
+const cors = require('cors')
 
-app.use(express.json())
+app.use(cors())
 
-let users = [
+let sailors = [
   { id: 33, name: 'Sailor Moon', alias: 'Usagi' },
   { id: 34, name: 'Sailor Mercury', alias: 'Amy' },
-  { id: 98, firstName: 'Reiko', alias: 'Sailor Aluminum Siren' }
+  { id: 98, name: 'Sailor Aluminum Siren', alias: 'Reiko' },
+  { id: 78, name: 'Sailor Neptune', alias: 'Tcho' }
 ]
 
 app.get('/', (req, res) => {
-  res.send('Try routes `~/users` or `~/get-user/34`')
+  res.send('Try routes `~/sailors` or `~/get-sailor/34`')
 })
 
-app.get('/users', (req, res) => {
-  res.send(users)
+app.get('/sailors', (req, res) => {
+  res.send(sailors)
 })
 
-app.get('/get-user/:id', (req, res) => {
-  let user = users.find(element => element.id === Number(req.params.id))
-  res.send(user)
+app.get('/get-sailor/:id', (req, res) => {
+  let sailor = sailors.find(element => element.id === Number(req.params.id))
+  res.send(sailor)
 })
 
 
 // This endpoint takes an existing 'id' and sets a flag called 'loggedin' as true.
-app.post('/set-user/:id', (req, res) => {
-  let userData = req.body
-  userData.loggedin = true // This is the flag requested in the ticket
+app.post('/set-sailor/:id', (req, res) => {
+  let sailorData = req.body
+  sailorData.loggedin = true // This is the flag requested in the ticket
   res.json({ requestBody: req.body })
 })
 

@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styles from './Header.scss'
 
-export const Header = () => {
+export default function Header () {
   return (
     <div className={styles.rootHeader}>
       <h1 className={styles}>KQED Initial Training Project - Pamela Gilmour</h1>
@@ -16,6 +16,9 @@ export const Header = () => {
           </li>
           <li>
             <Link to='hex-picker'>Click for Hex Picker Page</Link>
+          </li>
+          <li>
+            <Link to='sailorForm'>Sailor Form</Link>
           </li>
         </ul>
       </nav>
