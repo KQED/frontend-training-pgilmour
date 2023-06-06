@@ -6,10 +6,10 @@
   "private": true,
   "license": "unlicensed",
   "scripts": {
-    "build": "webpack --mode=development --config webpack.react.config.js",
+    "build": "webpack --mode=development --config webpack/webpack.client.config.js",
     "start": "node server/index.js",
     "eslint": "eslint -c ./.eslintrc.json ./react-app",
-    "watch": "webpack --mode=development --watch --config webpack.react.config.js"
+    "watch": "webpack --mode=development --watch --config webpack/webpack.client.config.js"
   },
   "devDependencies": {
     "@babel/core": "^7.18.9",
