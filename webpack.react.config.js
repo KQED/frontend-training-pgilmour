@@ -3,6 +3,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ESLintPlugin = require('eslint-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const srcPath = (...filePath) => path.resolve('src', ...filePath)
+const dotenv = require('dotenv')
+// const mode = process.env.NODE_ENV
+// const dir = path.join(__dirname, '../vars')
+// const vars = dotenv.config({ path: `${dir}/${mode}.env` }).parsed
 
 module.exports={
   devtool: 'source-map',
@@ -95,6 +99,7 @@ module.exports={
     new HtmlWebpackPlugin({
       template: './react-app/index.html',
       publicPath: '/',
+      favicon: './react-app/src/icons8-ufo-emoji-32.png'
     }),
     new ESLintPlugin({
       extensions:['js', 'jsx', 'json']
