@@ -8,9 +8,9 @@ const Dotenv = require('dotenv-webpack')
 module.exports={
   devtool: 'source-map',
   mode: 'development',
-  entry: '/react-app/src/index.js',
+  entry: './react-app/src/index.js',
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, '../dist'),
     filename: 'main_react_bundle.js'
   },
   stats: {
@@ -88,9 +88,9 @@ module.exports={
   },
   resolve: {
     alias: {
-      components: path.resolve(__dirname, 'src'),
+      components: path.resolve(__dirname, 'react-app/src'),
     },
-    extensions: ['*', '.js', '.jsx', '.json']
+    extensions: ['.*', '.js', '.jsx', '.json']
   },
   plugins: [
     new HtmlWebpackPlugin({
