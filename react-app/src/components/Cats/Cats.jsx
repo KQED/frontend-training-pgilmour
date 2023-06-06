@@ -35,7 +35,7 @@ export default function Cats () {
   return (
     <div className={styles.catPage}>
       <h2>Cats Page Route</h2>
-      <img src={catGif} />
+      { catGif && <img src={catGif} alt='Random cat GIF' />}
     </div>
   )
 }
