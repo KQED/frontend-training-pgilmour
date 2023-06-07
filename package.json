@@ -9,16 +9,18 @@
     "build:csr": "webpack --mode=development --config webpack/webpack.client.config.js",
     "watch:csr": "webpack --mode=development --watch --config webpack/webpack.client.config.js",
     "start:csr": "node servers/server.csr.js",
-    "eslint": "eslint -c ./.eslintrc.json \"**/*\" --ignore-pattern node_modules/ --ignore-pattern dist/",
-    "build:ssr": "webpack --mode=development --config webpack/webpack.server.config.js"
+    "eslint": "eslint -c ./.eslintrc.json api react-app servers webpack",
+    "build:ssr": "webpack --mode=development --config webpack/webpack.server.config.js",
+    "start:ssr": "node servers/server.ssr.mjs"
   },
   "devDependencies": {
-    "@babel/core": "^7.18.9",
+    "@babel/core": "^7.22.1",
     "@babel/eslint-parser": "^7.18.9",
+    "@babel/plugin-transform-modules-commonjs": "^7.21.5",
     "@babel/plugin-transform-react-inline-elements": "^7.18.6",
     "@babel/plugin-transform-runtime": "^7.18.9",
     "@babel/preset-env": "^7.18.9",
-    "@babel/preset-react": "^7.18.6",
+    "@babel/preset-react": "^7.22.3",
     "babel-loader": "^8.2.5",
     "dotenv-webpack": "^8.0.1",
     "eslint": "^8.21.0",
@@ -45,7 +47,8 @@
     "redux": "^4.2.0",
     "sass": "^1.54.9",
     "sass-loader": "^13.0.2",
-    "style-loader": "^3.3.1"
+    "style-loader": "^3.3.1",
+    "webpack-node-externals": "^3.0.0"
   },
   "repository": "git@github.com:KQED/frontend-training-pgilmour.git"
 }
