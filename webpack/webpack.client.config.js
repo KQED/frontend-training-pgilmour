@@ -11,7 +11,7 @@ module.exports={
   entry: './react-app/src/index.js',
   output: {
     path: path.resolve(__dirname, '../dist'),
-    filename: 'main_react_bundle.js'
+    filename: 'main_client_bundle.js'
   },
   stats: {
     loggingDebug: ['sass-loader'],
