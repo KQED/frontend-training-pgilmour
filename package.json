@@ -6,10 +6,11 @@
   "private": true,
   "license": "unlicensed",
   "scripts": {
-    "build": "webpack --mode=development --config webpack/webpack.client.config.js",
-    "start": "node server/index.js",
-    "eslint": "eslint -c ./.eslintrc.json ./react-app",
-    "watch": "webpack --mode=development --watch --config webpack/webpack.client.config.js"
+    "build:csr": "webpack --mode=development --config webpack/webpack.client.config.js",
+    "watch:csr": "webpack --mode=development --watch --config webpack/webpack.client.config.js",
+    "start:csr": "node servers/server.csr.js",
+    "eslint": "eslint -c ./.eslintrc.json \"**/*\" --ignore-pattern node_modules/ --ignore-pattern dist/",
+    "build:ssr": "webpack --mode=development --config webpack/webpack.server.config.js"
   },
   "devDependencies": {
     "@babel/core": "^7.18.9",
