@@ -4,12 +4,12 @@ import {
   Routes,
   Route
 } from 'react-router-dom'
-import Header from './components/Header/Header'
+import Header from './components/Header/Header.jsx'
 
-import Cats from './components/Cats/Cats'
-import HexPicker from './components/HexPicker/HexPicker'
-import Home from './components/Home/Home'
-import SailorForm from './components/SailorForm/SailorForm'
+import Cats from './components/Cats/Cats.jsx'
+import HexPicker from './components/HexPicker/HexPicker.jsx'
+import Home from './components/Home/Home.jsx'
+import SailorForm from './components/SailorForm/SailorForm.jsx'
 
 
 function App () {

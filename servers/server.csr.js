@@ -1,4 +1,3 @@
-// Starter code from https://expressjs.com/en/starter/hello-world.html
 const express = require('express')
 const app = express()
 const path = require('path')

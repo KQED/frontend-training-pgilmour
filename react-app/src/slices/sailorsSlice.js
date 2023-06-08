@@ -3,25 +3,22 @@ import { createSlice } from '@reduxjs/toolkit'
 export const sailorsSlice = createSlice({
   name: 'sailors',
   initialState: {
-    data: JSON.parse(localStorage.getItem('sailors')) || null,
+    data: null,
     isLoading: false,
     error: null
   },
   reducers: {
     receiveAllSailors: (state, action) => {
       const data = action.payload
-      // console.log('data = action.payload in recieveAllSailors', typeof data) // object
       state.data = data
       state.isLoading = false
       state.error = null
-      localStorage.setItem('sailors', JSON.stringify(data))
     },
     addSailor: (state, action) => {
       const sailor = action.payload
       const existingIds = state.data.allSailors.map(sailor => sailor.id) // create an array of exisiting ids
       let sailorId = generateUUID(existingIds)
       sailor.id = sailorId
-      // console.log(sailor.id)
       state.data.allSailors.push(sailor)
     },
     setIsLoading: (state) => {
@@ -75,7 +72,6 @@ export const fetchAllSailors = () => {
     fetch(url, requestOptions)
       .then((response) => {
         if(response.ok) {
-          // console.log('response from first then in the fetch', response)
           return response.json()
         } else {
           throw new Error('response did not return "ok"')
@@ -83,7 +79,6 @@ export const fetchAllSailors = () => {
       })
       .then(
         (response) => {
-        // console.log('response from second then in the fetch', response)
           dispatch(receiveAllSailors({ allSailors: response }))
         }
       )

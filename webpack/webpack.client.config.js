@@ -3,14 +3,15 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ESLintPlugin = require('eslint-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const srcPath = (...filePath) => path.resolve('src', ...filePath)
+const Dotenv = require('dotenv-webpack')
 
 module.exports={
   devtool: 'source-map',
   mode: 'development',
-  entry: '/react-app/src/index.js',
+  entry: './react-app/src/index.js',
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'main_react_bundle.js'
+    path: path.resolve(__dirname, '../dist'),
+    filename: 'main_client_bundle.js'
   },
   stats: {
     loggingDebug: ['sass-loader'],
@@ -87,19 +88,21 @@ module.exports={
   },
   resolve: {
     alias: {
-      components: path.resolve(__dirname, 'src'),
+      components: path.resolve(__dirname, 'react-app/src'),
     },
-    extensions: ['*', '.js', '.jsx', '.json']
+    extensions: ['.*', '.js', '.jsx', '.json']
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: './react-app/index.html',
       publicPath: '/',
+      favicon: './react-app/src/icons8-ufo-emoji-32.png'
     }),
     new ESLintPlugin({
       extensions:['js', 'jsx', 'json']
     }),
     new MiniCssExtractPlugin(),
+    new Dotenv()
   ],
   watchOptions: {
     ignored: path.resolve(__dirname, 'node_modules'),
