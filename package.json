@@ -6,6 +6,7 @@
   "private": true,
   "license": "unlicensed",
   "scripts": {
+    "sailorserver": "node api/api-server.js",
     "build:csr": "webpack --mode=development --config webpack/webpack.client.config.js",
     "watch:csr": "webpack --mode=development --watch --config webpack/webpack.client.config.js",
     "start:csr": "node servers/server.csr.js",

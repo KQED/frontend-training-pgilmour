@@ -8,11 +8,26 @@ webpack 5.73.0
 Building and running
 See package.json for the details of the commands below.
 
-To run without SSR:
+## To run the API that serves Sailor Moon universe data
 
-+ To build entire project, express to deliver react: `$ yarn build`
++ In the CLI,  `$ yarn sailorserver`
++ The endpoint can be found at [http://localhost:3001/](http://localhost:3001/)
 
-+ To start entire project, express server delivers react frontend: `$ yarn start`
+## To run client side rendering (csr):
+
++ To build the project in csr mode: `$ yarn build:csr`
+
++ To build the project in csr mode for development: `$ yarn watch:csr`
+
++ To deliver the project in csr mode: `$ yarn start:csr`
+
+
+## To run server side rendering (ssr):
+
++ To build the project in ssr mode: `$ yarn build:csr`
+
++ To deliver the project in ssr mode: `$ yarn start:csr`
+
 
 ## Redis and redis-cli
 ### KSM-3867 Deliverables
