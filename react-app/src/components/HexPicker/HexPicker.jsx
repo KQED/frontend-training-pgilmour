@@ -21,8 +21,8 @@ export default function HexPicker () {
     document.body.style.color = color
   }
 
-  console.log('generatedValue:', generatedValue)
-  console.log('fontValue:', fontValue)
+  // console.log('generatedValue:', generatedValue)
+  // console.log('fontValue:', fontValue)
 
   useEffect(() => {
     dispatch(oppositeColor())

@@ -15,7 +15,9 @@ if(typeof window !== 'undefined' && rootElement) {
     </Provider>
   )
 } else {
-  const SSRPlaceholder = () => { <div> Server Side Rendering Placeholder</div>}
+  const SSRPlaceholder = () => (
+    <div> Server Side Rendering Placeholder</div>
+  )
 
   createRoot(<SSRPlaceholder />).render()
 }
