@@ -8,6 +8,11 @@ webpack 5.73.0
 Building and running
 See package.json for the details of the commands below.
 
+## This project contains a call to the Giphy Gif Api and requires an api key.
+
+You can get your own Giphy api key at : [https://developers.giphy.com/docs/api#quick-start-guide](https://developers.giphy.com/docs/api#quick-start-guide)
+
+
 ## To run the API that serves Sailor Moon universe data
 
 + In the CLI,  `$ yarn sailorserver`
