@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import {
   randomize,
@@ -12,17 +12,30 @@ export default function HexPicker () {
 
   const dispatch = useDispatch()
 
-  const applyColor = () => {
-    document.body.style.background = generatedValue
+  const applyColor = (color) => {
+    document.body.classList.remove('oppositeFontColor')
+    document.body.style.background = color
   }
-  const applyFontColor = () => {
-    document.body.style.color = fontValue
+  const applyFontColor = (color) => {
+    document.body.classList.add('oppositeFontColor')
+    document.body.style.color = color
   }
 
   // console.log('generatedValue:', generatedValue)
   // console.log('fontValue:', fontValue)
-  applyColor()
-  applyFontColor()
+
+  useEffect(() => {
+    dispatch(oppositeColor())
+    applyColor(generatedValue)
+    applyFontColor(fontValue)
+  }, [dispatch, generatedValue, fontValue])
+
+  const handleButtonClick = () => {
+    dispatch(randomize())
+    dispatch(oppositeColor())
+    // applyColor(generatedValue)
+    // applyFontColor(fontValue)
+  }
 
   return (
     <div className={style}>
@@ -31,11 +44,7 @@ export default function HexPicker () {
         <p>{generatedValue}</p>
         <button
           aria-label='Generate random RGB value'
-          onClick={() => {
-            dispatch(randomize())
-            dispatch(oppositeColor())
-          }
-          }
+          onClick={handleButtonClick}
         >
           Click to Generate a Random RBG Value
         </button>

@@ -96,7 +96,7 @@ module.exports={
     new HtmlWebpackPlugin({
       template: './react-app/index.html',
       publicPath: '/',
-      favicon: './react-app/src/icons8-ufo-emoji-32.png'
+      favicon: './react-app/icons8-ufo-emoji-32.png'
     }),
     new ESLintPlugin({
       extensions:['js', 'jsx', 'json']
